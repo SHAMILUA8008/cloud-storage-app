@@ -14,6 +14,8 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class FileSerializer(serializers.ModelSerializer):
+    uploaded_by = serializers.CharField(source='uploaded_by.username', read_only=True)
+    
     class Meta:
         model = File
         fields = '__all__'
